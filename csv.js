@@ -1,4 +1,5 @@
 // See http://en.wikipedia.org/wiki/Comma-separated_values
+// /\S*"((?:[^"\\]\\.)*)"\S*,?|\S*([^,]+),?\\S*,/g;
 "use strict"; // Use ECMAScript 5 strict mode in browsers that support it
 
 $(document).ready(function() {
@@ -10,8 +11,8 @@ $(document).ready(function() {
 function calculate() {
   var result;
   var original       = document.getElementById("original");
-  var temp = original.value;
-  var regexp = //g;
+  var temp = original.value; 
+  var regexp = /("(-?\w*'?,?\.?:?\s*)+")|(-?\w+)/g;
   var lines = temp.split(/\n+\s*/);
   var commonLength = NaN;
   var r = [];
